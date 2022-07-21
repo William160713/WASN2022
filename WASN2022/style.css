@@ -793,7 +793,8 @@ ul > li {
   	border-width: 0 3px 3px 0;
   	display: inline-block;
   	padding: 3px;
-  	margin-left: 10px;
+  	/* 修改上方導航間距 */
+	margin-left: -5px;
   	transform: rotate(45deg);
   	-webkit-transform: rotate(45deg);
 }
