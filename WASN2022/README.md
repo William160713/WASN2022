@@ -1,478 +1,107 @@
-=== EDULAB ===
+# 網站內容講解
+### 主要要注意的是html跟style.css這兩個檔案，相關的照片是放在images/下面
+
+首頁是index.html，上面的menupage分別應對每個中文，
+如果有需要就把名字改掉  
+
+要注意的是如果改動上方的任何一個分頁，則其他的網頁也需要跟著更動。  
+
+文字那些排版我主要都是用表格，相對比較簡單，有需要的話參考我的自己新增就可以。
+
+#### html網頁內容
+
+- 首頁
+- 大會組織
+	- 清單子項目
+- 大會議程
+	- 大會議程一覽表
+- 專題演講
+- 徵求論文
+- 成果展報名
+- 論文審查結果
+- 研討會註冊
+- 國家科技及技術委員會成果展
+- 更多結果
+	- 亞洲大學
+	- 宜蘭大學
+	- 雲端學會
+	- wasn2022
+
+我把大部分的內容都註解起來了，像是下面這些部分:
+
+```
+		<!--
+		<section class="whyUs-section">
+			<div class="container">
+				
+				<div class="featured-points">
+					<ul>
+						<li><i class="fas fa-book"></i> free books for students</li>
+						<li><i class="fas fa-money-check-alt"></i> affordable fees</li>
+						<li><i class="fas fa-chalkboard-teacher"></i> experienced teachers</li>
+						<li> <i class="fas fa-book"></i> free books for students</li>
+					</ul>
+				</div>
+				
+				<div class="whyus-wrap">
+					<h1>關於MC2022</h1> 
+				</div>
+			</div>
+		</section>
+		-->	
+
+```
+
+遇到這種的基本上可以不要理他，但是未來有需要的話就用`ctrl+ /` 的快捷鍵去掉註解
+就可以再前面的網頁顯示出結果了。
+
+***
+
+#### css部分
+
+css的部份的話主要是用來控制網頁元素的一些變化，比方說圖片放大縮小，  
+
+如果menu一旦修改內容的話，裡面的字都需要新的排版，因此就需要更動`style.css`的內容(下方)
 
 
-=== Changelog ===
 
-index page done
-
-blog page done
-
-blog-edu-single done
-
-events done
-
-contact page done
-
-about page done
-
-course single page done
-
-testimonial page done
-
-course Listing page done
-
-gallery 2 page done 
-
-video and image slider added
-
-Image Hover and lightbox added
-
-font-size and font family grouping
-
-
-/*================================
-	Font Size
-==================================*/
-
-/*font size of 14px*/
-
-.course-listing-page .button-group button,
-.gallery-section .button-group button,
-.gallery-section2 .button-group button,
-.learn-courses .box-body p, 
-.course-listing-page .grid-item .box-body p,
-.recent-course-single .grid-item .box-body p,
-.details p,
-.details h5,
-.news-detail h2,
-.news-detail p,
-.footer-first-section .box-wrap p,
-.footer-first-section .box-wrap h4,
-.footer-first-section .box-wrap ul li a,
-.footer-first-section .recent-course-wrap .course-name p,
-.footer-first-section .quick-contact input,
-.footer-first-section .quick-contact textarea,
-.footer-first-section .quick-contact button, 
-.grid-box-wrap .grid-body h4,
-.page-content .post-content p,
-.page-content .courses-wrap span,
-.page-content .page-article a,
-.team-members .developer-wrap p,
-.course-detail .course-box p,
-#course-page aside .reserve-course input[type="text"],
-aside .reserve-course input[type="email"],
-.testimonial-page aside .submit-testimonials input[type="text"],
-.testimonial-page aside .submit-testimonials input[type="email"],
-#course-page aside .reserve-course textarea,
-.testimonial-page aside .submit-testimonials textarea,
-.testimonial-page .submit-testimonials form .custom-file-upload,
-.row .rewiew-content p,
-.top-header .container,
-.testimonial-holder,
-.post-content span a svg,
-.developer-wrap li a svg,
-.submit-testimonials form span p,
-figcaption h4
-{
-	font-size: 1.4rem;
+```
+.menu-parent::after {
+	content: "";
+	border: solid #3a3a3a;
+  	border-width: 0 3px 3px 0;
+  	display: inline-block;
+  	padding: 3px;
+  	/* 修改上方導航間距 */
+	margin-left: 100px;
+  	transform: rotate(45deg);
+  	-webkit-transform: rotate(45deg);
 }
+```
 
-/*Font size of 15px*/
+只要直接搜尋margin-left的部分，把`100px`的地方數字依照看狀況調整大小就可以了
 
-.row .rewiew-content footer h4,
-.row .rewiew-content footer h4::before,
-.row .rewiew-content footer h4::after{
-	font-size: 1.5rem;
+banner的大小要是要換的話，就是修改下方程式碼:
+
+```
+.banner img {
+	/*banner 照片的設計 調整長寬都放在這*/ 
+	opacity: 0.5; 
+    filter: alpha(opacity=50); 
+	height: 600px;
+	width: 100%;
 }
+```
 
-/*Font size of 16px*/
+其中`opacity: 0.5; `的地方設置為1的話就會是完全清晰，往下設置就會模糊  
 
-.whyus-wrap p,
-.footer-first-section .recent-course-wrap .course-name h3,
-.footer-last-section .container p,
-.grid-box-wrap .grid-body p,
-.grid-box-wrap .grid-body a,
-.page-content .container aside .news-letter p,
-.page-content .container aside .news-letter input[type="email"],
-.page-content .container aside .news-letter a,
-.page-content .post-content h3,
-.contact-page-section .people-info-wrap p,
-.contact-page-section .people-info-wrap form .input-,
-.people-info-wrap form input[type="submit"],
-.about-upper-section .who-we-are p,
-.about-upper-section .our-story a,
-.course-detail .course-box h3,
-.course-detail .course-box button,
-.course-detail p,
-.course-objective li,
-.contact-list li span
-{
-	font-size: 1.6rem;
-}
-
-/*font size of 18px*/
-
-.nav-menu a,
-.learn-courses .learn-desining-banner,
-.course-listing-page .grid-item .learn-desining-banner-course,
-.recent-course-single .grid-item .learn-desining-banner-course,
-.featured-points li,
-.read-more-btn,
-.details h3,
-.news-detail h1,
-.footer-first-section .box-wrap header h1,
-.page-content .courses-wrap p,
-.page-content .page-article p,
-.page-content .share-section span,
-.comment-form input[type="text"],
-.comment-form input[type="email"],
-.comment-form textarea,
-.comment-form p,
-.button-section .button, .customer-review .button,
-.team-members .developer-wrap h3,
-#course-page aside .reserve-course input[type="submit"],
-.testimonial-page aside .submit-testimonials input[type="submit"],
-.row .rewiew-content header h3,
-.row .rewiew-content header p,
-.footer-second-section .social-list li a svg,
-.contact-list li svg,
-figcaption h3 
-{
-	font-size: 1.8rem;
-}
-
-/*font size of 20px*/
-
-.banner .container h3,
-.grid-box-wrap .grid-body h1,
-.page-content .container aside .recent-post h2,
-.navigation.pagination .page-numbers,
-.contact-page-section .contact-social li a,
-#course-page .reserve-course h2,
-.testimonial-page aside .submit-testimonials h2
-{
-	font-size: 2rem;
-}
+`	height: 600px;
+	width: 100%;`  的部分修改長寬的結果。
 
 
-/*Font size of 24px*/
-.query-section .container p,
-.page-content .container aside .news-letter h2,
-.page-content .follow-us h2,
-.page-content .follow-us a,
-.page-content .share-section span a,
-.page-content .categories-block h2,
-.comments-title,
-.comment-form h2,
-.course-detail h3
-{
-	font-size: 2.4rem;
-}
+	
+> 可以參考的網站: https://www.w3schools.com/tags/default.asp
 
-/*font size of 25px*/
+> 我網站的github連結: https://github.com/William160713/MC2022
 
-.featured-points ul svg,
-.about-upper-section .our-story svg
-{
-	font-size: 2.5rem;
-}
-
-
-/*Font Size Of 30px*/
-
-.page-heading .container h2,
-.whyus-wrap h1,
-.wrap-others-say h1,
-.contact-page-section .people-info-wrap h2,
-.contact-page-section .contact-info h2,
-.top-heading,
-#course-page .course-detail h2,
-.recent-course-single h2
-{
-	font-size: 3rem;
-}
-
-/*Font Size of 40px*/
-
-.banner .container h1,
-.banner .owl-nav .owl-prev, 
-.banner .owl-nav .owl-next,
-.page-content .page-article h1
-{
-	font-size: 4rem;
-}
-
-/*================================
-	Font Family
-==================================*/
-
-.top-header a,
-.nav-menu a,
-.banner .container,
-.page-heading .container h2,
-.course-listing-page .button-group button,
-.gallery-section .button-group button,
-.gallery-section2 .button-group button,
-.learn-courses .learn-desining-banner,
-.course-listing-page .grid-item .learn-desining-banner-course,
-.recent-course-single .grid-item .learn-desining-banner-course,
-.learn-courses .box-body p, 
-.course-listing-page .grid-item .box-body p,
-.recent-course-single .grid-item .box-body p,
-.learn-courses .box-body section p,
-.featured-points li,
-.whyus-wrap h1,
-.whyus-wrap p,
-.read-more-btn,
-.details h3,
-.details p,
-.wrap-others-say h1,
-.news-detail h1,
-.news-detail h2,
-.news-detail p,
-.query-section .container p,
-.footer-first-section .box-wrap header h1,
-.footer-first-section .box-wrap p,
-.footer-first-section .box-wrap h4 a,
-.footer-first-section .box-wrap ul li a,
-.footer-first-section .recent-course-wrap,
-.footer-last-section .container p,
-.grid-box-wrap .grid-body h4,
-.grid-box-wrap .grid-body h1,
-.grid-box-wrap .grid-body p,
-.grid-box-wrap .grid-body a,
-.page-content .container aside, 
-.testimonial-page .container aside,
-.navigation.pagination .page-numbers,
-.page-content .page-article,
-.comment-section,
-.comment-form,
-.button-section .button, 
-.customer-review .button,
-.contact-page-section,
-.about-upper-section,
-.team-members .container,
-#course-page,
-.course-detail .course-box button,
-#course-page aside .reserve-course input, 
-#course-page aside .reserve-course textarea,
-.testimonial-page aside .submit-testimonials input,
-.testimonial-page aside .submit-testimonials textarea,
-.recent-course-single h2,
-.testimonial-page .container,
-.customer-review .row .rewiew-content
-{
-	font-family: 'Raleway', sans-serif;
-}
-
-/*================================
-	Color
-==================================*/
-
-/*====Black Text Color==========*/
-
-.page-heading .container h2,
-.course-listing-page .button-group button,
-.gallery-section .button-group button,
-.gallery-section2 .button-group button,
-.query-section .container p,
-.footer-first-section .quick-contact button,
-.grid-box-wrap .grid-body h1,
-.page-content .container aside .recent-post h2,
-.page-content .follow-us,
-.page-content .follow-us a,
-.page-content .page-article h1,
-.page-content .share-section span,
-.page-content .share-section span a,
-.page-content .categories-block h2,
-.comments-title,
-.comment-form h2,
-.contact-page-section .people-info-wrap h2,
-.contact-page-section .contact-info h2,
-.contact-page-section .contact-list li svg,
-.contact-page-section .contact-social li a,
-.top-heading,
-.team-members .developer-wrap h3,
-.team-members .developer-wrap ul svg,
-#course-page .course-detail h2,
-.course-detail h3,
-.recent-course-single h2,
-.row .rewiew-content header h3,
-.row .rewiew-content footer h4,
-figcaption h4   
-{
-	color: #000;
-}
-
-/*======Black Background Color==========*/
-.page-footer,
-.footer-first-section .quick-contact input,
-.footer-first-section .quick-contact textarea
-{
-	background: #000;
-}
-
-
-/*====White Text Color==========*/
-.top-header .container a,
-.banner .container,
-.banner .owl-nav .owl-prev, 
-.banner .owl-nav .owl-next,
-.learn-courses .learn-desining-banner,
-.course-listing-page .grid-item .learn-desining-banner-course,
-.recent-course-single .grid-item .learn-desining-banner-course,
-.whyUs-section,
-.whyUs-section .whyus-wrap a,
-.read-more-btn,
-.page-footer,
-.footer-first-section .box-wrap a,
-.footer-first-section .box-wrap ul li a,
-.footer-first-section .quick-contact input,
-.footer-first-section .quick-contact textarea,
-.page-footer .footer-second-section .social-list li a,
-.footer-last-section .container p a,
-.page-content .container aside .news-letter a,
-.page-content .courses-wrap span,
-.page-content .courses-wrap p,
-.reply a,
-.comment-form input[type="submit"],
-.button-section .button, 
-.customer-review .button,
-.people-info-wrap form input[type="submit"],
-.course-detail .course-box button,
-#course-page aside .reserve-course input[type="submit"],
-.testimonial-page aside .submit-testimonials input[type="submit"]
-{
-	color: #fff;
-}
-
-/*======White Background Color========*/
-.sub-menu,
-.nav-menu .sub-menu .sub-menu-g,
-.whyus-wrap h1::after,
-.event-wrap .details,
-.what-other-say .wrap-others-say,
-.news-detail,
-.footer-first-section .quick-contact button,
-.page-content .post-wrap .post-content,
-.page-content .follow-us,
-.page-content .latest-course,
-.testimonial-page .submit-testimonials form .custom-file-upload 
-{
-	background: #fff;
-}
-
-
-/*======Dark BLue Color For BackGround============*/
-
-.top-header,
-.course-listing-page .grid-item .learn-desining-banner-course, 
-.recent-course-single .grid-item .learn-desining-banner-course,
-.comment-form input[type="submit"],
-.button-section .button, .customer-review .button,
-.course-detail .course-box button,
-#course-page aside .reserve-course input[type="submit"],
-.testimonial-page aside .submit-testimonials input[type="submit"]
-{
-	background: #1c3961;
-}
-
-/*======Dark BLue Color For Text============*/
-
-.details h3,
-.news-detail h1,
-.query-section .container p a,
-.page-content .post-content h3,
-.course-detail .course-box i,
-.course-detail .course-box h3,
-figcaption h3
-{
-	color: #1c3961;
-}
-
-
-/*==========================================*/
-.learn-courses .box-body p, 
-.course-listing-page .grid-item .box-body p,
-.recent-course-single .grid-item .box-body p,
-.grid-box-wrap .grid-body h4,
-.grid-box-wrap .grid-body p,
-.page-content .container aside .news-letter p,
-.navigation.pagination .page-numbers,
-.contact-page-section .people-info-wrap p
-{
-	color: #5c5c5c;
-}
-
-/*===========================================*/
-.about-upper-section .who-we-are p,
-.about-upper-section .our-story a,
-.about-upper-section .our-story p
-{
-	color: #59616d;
-}
-
-/*===========================================*/
-.course-detail p,
-.course-objective li
-{
-	color: #646464;
-}
-
-/*===========================================*/
-.row .rewiew-content p,
-.learn-courses .owl-carousel .owl-nav, 
-.latest-news .owl-carousel .owl-nav
-{
-	color:  #636363;
-}
-
-/*===========================================*/
-.news-detail h2,
-.news-detail p,
-.details p
-{
-	color: #585858;
-}
-
-/*=============================================*/
-.grid-box-wrap .grid-body a,
-.navigation.pagination .page-numbers.current,
-.navigation.pagination .page-numbers:hover
-{
-	color: #2b74b8;
-}
-/*===========================================*/
-.page-content .container aside .news-letter a,
-.page-content .courses-wrap span
-{
-	background: #2b74b8; 
-}
-
-/*===============================================*/
-.about-upper-section .our-story svg,
-.team-members .developer-wrap p
-{
-	color: #1f4271;
-}
-
-
-/*==========================================*/
-
-.learn-courses .learn-desining-banner,
-.course-listing-page .grid-item .learn-desining-banner-course,
-.recent-course-single .grid-item .learn-desining-banner-course,
-.learn-desining-banner
-{
-	background: #009450;
-}
-
-/*=================================================*/
-
-.page-content .container aside .news-letter,
-#course-page aside .reserve-course,
-.testimonial-page aside .submit-testimonials,
-.query-section
-{
-	background: #f3f3f3;
-}
+> 我網站的github連結: https://github.com/William160713/WASN2022
